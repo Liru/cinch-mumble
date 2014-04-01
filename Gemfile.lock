@@ -4,6 +4,7 @@ PATH
     cinch-mumble (0.0.1)
       cinch (~> 2.0)
       mumble-ruby (~> 1.0)
+      opus-ruby
 
 GEM
   remote: https://rubygems.org/
