@@ -1,0 +1,43 @@
+PATH
+  remote: .
+  specs:
+    cinch-mumble (0.0.1)
+      cinch (~> 2.0)
+      mumble-ruby (~> 1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.0.4)
+      i18n (~> 0.6, >= 0.6.9)
+      minitest (~> 4.2)
+      multi_json (~> 1.3)
+      thread_safe (~> 0.1)
+      tzinfo (~> 0.3.37)
+    atomic (1.1.16)
+    cinch (2.1.0)
+    ffi (1.9.3-x86-mingw32)
+    hashie (2.0.5)
+    i18n (0.6.9)
+    minitest (4.7.5)
+    multi_json (1.9.2)
+    mumble-ruby (1.0.2)
+      activesupport
+      hashie
+      opus-ruby
+      ruby_protobuf
+    opus-ruby (0.0.1)
+      ffi
+    rake (0.9.6)
+    ruby_protobuf (0.4.11)
+    thread_safe (0.3.1)
+      atomic (>= 1.1.7, < 2)
+    tzinfo (0.3.39)
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  bundler (~> 1.6)
+  cinch-mumble!
+  rake
