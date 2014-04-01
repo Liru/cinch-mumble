@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+*_cert/
 .idea/
 /.config
 /coverage/

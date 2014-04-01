@@ -8,8 +8,9 @@ bot = Cinch::Bot.new do
     c.nick = 'cinch-mumble'
     c.server = 'irc.freenode.net'
     c.channels = ['#cinch-bots']
-    c.plugins.plugins = [CinchMumble] # optionally add more plugins
+    c.plugins.plugins = [Cinch::Plugins::CinchMumble] # optionally add more plugins
   end
 end
 
 bot.start
+
