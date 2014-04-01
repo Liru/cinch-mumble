@@ -4,15 +4,20 @@ module Cinch
   module Plugins
     class CinchMumble
       include Cinch::Plugin
-      match /mumble play (.*)/, method: :play
+      match /mumble play ([A-Za-z0-9\_\-\.]+)/, method: :play
       match /mumble stop/, method: :stop
       match /mumble list/, method: :list
       match /mumble connect/, method: :connect
 
       def play(m, file)
-        %x{mpc update}
-        m.reply "Playing..."
-        %x{mpc add #{file}; mpc play}
+        if file
+          %x{mpc update}
+          m.reply "Playing..."
+          %x{mpc add #{file}; mpc play}
+        else
+          m.reply $1
+          m.reply "That's not valid. :("
+        end
       end
 
       def stop(m)
