@@ -4,9 +4,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "cinch-mumble"
-  spec.version       = '0.0.1'
+  spec.version       = '0.0.2'
   spec.authors       = ['Liru']
-  spec.email         = ['theliru@gmail.com']
+  spec.email         = ''
   spec.summary       = 'A Mumble plugin for Cinch that allows users to play/trigger sound clips and music via IRC.'
   spec.description   = spec.summary
   spec.homepage      = "http://www.gihub.com/Liru/cinch-mumble"
@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency('cinch', '~> 2.0')
   spec.add_dependency('mumble-ruby', '~> 1.0')
   spec.add_dependency('opus-ruby')
+  spec.add_dependency('ruby-mpd')
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"

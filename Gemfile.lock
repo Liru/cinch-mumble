@@ -1,10 +1,11 @@
 PATH
   remote: .
   specs:
-    cinch-mumble (0.0.1)
+    cinch-mumble (0.0.2)
       cinch (~> 2.0)
       mumble-ruby (~> 1.0)
       opus-ruby
+      ruby-mpd
 
 GEM
   remote: https://rubygems.org/
@@ -30,6 +31,7 @@ GEM
     opus-ruby (0.0.1)
       ffi
     rake (0.9.6)
+    ruby-mpd (0.3.1)
     ruby_protobuf (0.4.11)
     thread_safe (0.3.1)
       atomic (>= 1.1.7, < 2)

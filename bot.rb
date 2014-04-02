@@ -2,6 +2,7 @@ require 'cinch'
 require 'mumble-ruby'
 require_relative "lib/cinch/plugins/mumble.rb"
 
+
 bot = Cinch::Bot.new do
   configure do |c|
     # add all required options here
