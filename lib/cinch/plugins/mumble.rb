@@ -16,7 +16,7 @@ module Cinch
       def play(m, file='') # TODO: Refactor play and queue.
         unless file.empty?
           regex = file.gsub /^|\s+|$/, '.*'
-          songs = @mpd.files[:file].keep_if { |s| s =~ /#{regex}/ }
+          songs = @mpd.files[:file].keep_if { |s| s =~ /#{regex}/i }
 
           if songs.empty?
             m.reply "I've got nothing by that name."
@@ -32,7 +32,7 @@ module Cinch
       def queue(m, file)
         unless file.empty?
           regex = file.gsub /^|\s+|$/, '.*'
-          songs = @mpd.files[:file].keep_if { |s| s =~ /#{regex}/ }
+          songs = @mpd.files[:file].keep_if { |s| s =~ /#{regex}/i }
 
           if songs.empty?
             m.reply "I've got nothing by that name."
@@ -47,7 +47,7 @@ module Cinch
       def stop(m)
         m.reply 'Stopping current sound clip...'
         @mpd.stop
-        @mpd.delete 1
+        @mpd.delete 0
       end
 
       def list(m)
