@@ -5,7 +5,7 @@ module Cinch
   module Plugins
     class CinchMumble
       include Cinch::Plugin
-      match /mumble play( [A-Za-z0-9\_\-\.]+)/, method: :play
+      match /mumble play ([A-Za-z0-9\_\-\.]+)/, method: :play
       match /mumble stop/, method: :stop
       match /mumble list/, method: :list
       match /mumble connect/, method: :connect
@@ -16,7 +16,8 @@ module Cinch
       def play(m, file='') # TODO: Refactor play and queue.
         unless file.empty?
           regex = file.gsub /^|\s+|$/, '.*'
-          songs = @mpd.files.keep_if { |s| s =~ /#{regex}/ }
+          songs = @mpd.files[:file].keep_if { |s| s =~ /#{regex}/ }
+
           if songs.empty?
             m.reply "I've got nothing by that name."
             return
@@ -31,7 +32,7 @@ module Cinch
       def queue(m, file)
         unless file.empty?
           regex = file.gsub /^|\s+|$/, '.*'
-          songs = @mpd.files.keep_if { |s| s =~ /#{regex}/ }
+          songs = @mpd.files[:file].keep_if { |s| s =~ /#{regex}/ }
 
           if songs.empty?
             m.reply "I've got nothing by that name."
@@ -53,7 +54,7 @@ module Cinch
         m.reply 'I will PM you a list.'
 
         tracks = @mpd.files[:file]
-        m.user.send tracks.split("\n").join ', '
+        m.user.send tracks.join ', '
       end
 
       def update(m)
