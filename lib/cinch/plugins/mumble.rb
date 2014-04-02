@@ -16,7 +16,7 @@ module Cinch
       def play(m, file='') # TODO: Refactor play and queue.
         unless file.empty?
           regex = file.gsub /^|\s+|$/, '.*'
-          songs = @mpd.files.keep_if { |s| s =~ regex }
+          songs = @mpd.files.keep_if { |s| s =~ /#{regex}/ }
           if songs.empty?
             m.reply "I've got nothing by that name."
             return
@@ -31,7 +31,7 @@ module Cinch
       def queue(m, file)
         unless file.empty?
           regex = file.gsub /^|\s+|$/, '.*'
-          songs = @mpd.files.keep_if { |s| s =~ regex }
+          songs = @mpd.files.keep_if { |s| s =~ /#{regex}/ }
 
           if songs.empty?
             m.reply "I've got nothing by that name."
