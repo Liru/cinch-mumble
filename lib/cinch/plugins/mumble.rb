@@ -52,7 +52,7 @@ module Cinch
       def list(m)
         m.reply 'I will PM you a list.'
 
-        tracks = @mpd.list
+        tracks = @mpd.files
         m.user.send tracks.split("\n").join ', '
       end
 
